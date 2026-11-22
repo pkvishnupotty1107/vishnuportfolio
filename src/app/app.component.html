@@ -1,0 +1,103 @@
+<header class="topbar">
+  <nav class="nav shell" aria-label="Main navigation">
+    <a class="brand" href="#home" (click)="closeMenu()">VISHNU POTTY P K</a>
+    <button class="menu-toggle" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen()">☰</button>
+    <div class="nav-links" [class.open]="menuOpen()">
+      <a href="#about" (click)="closeMenu()">About</a><a href="#experience" (click)="closeMenu()">Experience</a>
+      <a href="#projects" (click)="closeMenu()">Projects</a><a href="#skills" (click)="closeMenu()">Skills</a>
+      <a class="nav-cta" href="#contact" (click)="closeMenu()">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-glow glow-one"></div><div class="hero-glow glow-two"></div>
+    <div class="shell hero-layout">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> SENIOR LEAD FULL-STACK ENGINEER</p>
+        <h1>Engineering ideas into <span>scalable products.</span></h1>
+        <p class="hero-lead">13+ years building enterprise applications with C#, .NET, Angular and modern web technologies. I combine hands-on engineering with technical leadership to deliver secure, maintainable and cloud-ready solutions.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">Explore my work <span>↗</span></a>
+          <a class="button button-ghost" href="https://www.linkedin.com/in/vishnu-potty-p-k-3320b6188" target="_blank" rel="noopener">LinkedIn profile ↗</a>
+        </div>
+        <div class="hero-note"><span class="note-line"></span> Based in India · Open to senior / lead engineering opportunities</div>
+      </div>
+      <aside class="hero-card">
+        <div class="card-top"><span>ENGINEERING SNAPSHOT</span><span class="live-pill">● LEADERSHIP</span></div>
+        <div class="monogram">VP<span>.</span></div>
+        <h2>Vishnu Potty P K</h2><p class="muted">Lead Engineer · UST Global</p>
+        <div class="snapshot-grid">
+          <div><strong>13+</strong><small>Years experience</small></div><div><strong>8</strong><small>Engineers led</small></div>
+          <div><strong>10+</strong><small>Years API development</small></div><div><strong>8</strong><small>Years Angular</small></div>
+        </div>
+        <div class="card-footer"><span class="pulse"></span> Building · Leading · Delivering</div>
+      </aside>
+    </div>
+    <div class="shell tech-strip"><span>CORE TECHNOLOGIES</span><b>C# / .NET</b><i></i><b>Angular</b><i></i><b>Microservices</b><i></i><b>SQL & MongoDB</b><i></i><b>Azure</b></div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="shell two-col">
+      <div class="section-intro"><p class="eyebrow">01 / ABOUT</p><h2>Technical depth.<br><span>Leadership mindset.</span></h2></div>
+      <div class="about-copy"><p class="large-copy">I’m a hands-on engineering leader who enjoys solving complex problems and helping teams deliver dependable software.</p>
+        <p>Currently a Lead Engineer at UST Global. I lead an eight-member team across projects, contribute to technical discussions and remain involved in the development of enterprise platforms.</p>
+        <p>My experience spans frontend applications, backend APIs, data platforms, identity and access management, and enterprise delivery. I focus on translating business needs into practical architecture and maintainable solutions.</p>
+        <div class="about-points"><span>✓ Solution design & technical discussions</span><span>✓ Mentoring and team collaboration</span><span>✓ Hands-on full-stack delivery</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="experience">
+    <div class="shell">
+      <div class="section-heading"><div><p class="eyebrow">02 / EXPERIENCE</p><h2>Where I’ve made an impact</h2></div><p class="heading-note">A career built across enterprise platforms, product engineering and team leadership.</p></div>
+      <div class="experience-card">
+        <div class="experience-marker"><span></span></div>
+        <div><div class="experience-meta">CURRENT ROLE · INTEL CLIENT ENGAGEMENT</div><h3>Lead Engineer <span class="at">at UST Global</span></h3>
+          <p class="muted">Technical leadership · Full-stack engineering · Enterprise applications</p>
+          <ul><li>Lead and coordinate an eight-member engineering team across multiple projects.</li><li>Contribute to solution design, technical discussions and implementation decisions.</li><li>Work hands-on on the Client Projects using Angular, .NET Core Web API, SQL Server and MongoDB.</li><li>Collaborate with stakeholders and engineers to support delivery, quality and maintainability.</li></ul>
+        </div>
+      </div>
+      <div class="experience-card earlier"><div class="experience-marker"><span></span></div><div><div class="experience-meta">EARLIER ROLES</div><h3>Full-Stack Developer · Team Lead · Project Coordinator</h3><p>Delivered business applications using .NET, Angular, Vue.js and .NetCore, with responsibilities across frontend leadership, API integration, database development, feature delivery and stakeholder coordination.</p></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="shell">
+      <div class="section-heading"><div><p class="eyebrow">03 / SELECTED WORK</p><h2>Projects & platforms</h2></div><p class="heading-note">A selection of enterprise solutions I’ve helped build and deliver.</p></div>
+      <div class="filter-row" aria-label="Filter projects">
+        <button *ngFor="let filter of filters" type="button" class="filter-chip" [class.selected]="activeFilter() === filter" (click)="setFilter(filter)">{{ filter }}</button>
+      </div>
+      <div class="project-grid">
+        <article class="project-card" *ngFor="let project of visibleProjects; let i = index">
+          <div class="project-top"><span class="project-number">0{{ i + 1 }}</span><span class="project-category">{{ project.category }}</span></div>
+          <h3>{{ project.title }}</h3><p>{{ project.summary }}</p><div class="project-role">{{ project.role }}</div>
+          <div class="tag-row"><span class="tag" *ngFor="let tech of project.stack">{{ tech }}</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="skills">
+    <div class="shell">
+      <div class="section-heading"><div><p class="eyebrow">04 / TOOLKIT</p><h2>Technology & expertise</h2></div><p class="heading-note">A practical toolkit for designing, building and operating modern enterprise software.</p></div>
+      <div class="skills-grid">
+        <article class="skill-card"><div class="skill-icon">01</div><h3>Backend engineering</h3><p>C#, .NET Core, ASP.NET Core Web API, REST APIs, microservices, Entity Framework Core, dependency injection, async programming.</p></article>
+        <article class="skill-card"><div class="skill-icon">02</div><h3>Frontend engineering</h3><p>Angular, TypeScript, JavaScript, RxJS, Vue.js, component architecture, responsive UI and API integration.</p></article>
+        <article class="skill-card"><div class="skill-icon">03</div><h3>Data & persistence</h3><p>SQL Server, MongoDB, MySQL, data modelling, query development and persistence-layer integration.</p></article>
+        <article class="skill-card"><div class="skill-icon">04</div><h3>Cloud & DevOps</h3><p>Azure services, Docker, Kubernetes, CI/CD, application configuration, monitoring and production support.</p></article>
+        <article class="skill-card"><div class="skill-icon">05</div><h3>Identity & security</h3><p>Microsoft Entra ID, OAuth 2.0, OpenID Connect, JWT, SAML, authentication and role / claims-based authorization.</p></article>
+        <article class="skill-card"><div class="skill-icon">06</div><h3>Technical leadership</h3><p>Solution design, technical reviews, mentoring, Agile delivery, cross-team collaboration and engineering quality.</p></article>
+        <article class="skill-card"><div class="skill-icon">07</div><h3>AI-assisted development</h3><p>Using AI coding assistants for code generation, refactoring, test creation and review, with engineering judgment and validation.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="shell contact-box"><div><p class="eyebrow">05 / LET’S CONNECT</p><h2>Let’s build something<br><span>that matters.</span></h2><p>I’m interested in Senior Lead / Lead Full-Stack Engineering opportunities combining .NET, Angular, architecture and team leadership.</p></div>
+      <div class="contact-actions"><a class="button button-primary" href="https://www.linkedin.com/in/vishnu-potty-p-k-3320b6188" target="_blank" rel="noopener">Connect on LinkedIn ↗</a><a class="button button-primary" href="mailto:pkvishnupotty@gmail.com">Email me ↗</a><span class="button button-primary">Call: 9447708348</span></div>
+    </div>
+  </section>
+</main>
+<footer><div class="shell footer-inner"><a class="brand" href="#home">VISHNU<span>.</span></a><span>© 2026 Vishnu Potty P K · Crafted with Angular</span><a href="#home">Back to top ↑</a></div></footer>
